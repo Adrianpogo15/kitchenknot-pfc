@@ -9,7 +9,7 @@ export const appSections = [
     label: "Recetario KitchenKnot",
     icon: "search-outline",
     quickAccessColor: "#efe5d0",
-    description: "Explora el recetario externo integrado en la aplicación."
+    description: "Explora nuestro recetario KitchenKnot a recetas externas."
   },
   {
     key: "userRecipes",
@@ -23,28 +23,28 @@ export const appSections = [
     label: "Recetas favoritas",
     icon: "heart-outline",
     quickAccessColor: "#efe5d0",
-    description: "Consulta las recetas guardadas para volver a ellas cuando quieras."
+    description: "Consulta tus recetas guardadas."
   },
   {
     key: "shopping",
     label: "Listas de la compra",
     icon: "cart-outline",
     quickAccessColor: "#efe5d0",
-    description: "Organiza ingredientes, marca productos comprados y prepara tus compras."
+    description: "Organiza y prepara tus compras."
   },
   {
     key: "myRecipes",
     label: "Mis recetas",
     icon: "book-outline",
     quickAccessColor: "#efe5d0",
-    description: "Revisa tus recetas creadas dentro de la aplicación."
+    description: "Revisa tu rincón de recetas."
   },
   {
     key: "profile",
     label: "Perfil",
     icon: "person-outline",
     quickAccessColor: "#efe5d0",
-    description: "Revisa la informacion de tu cuenta y los datos de tu perfil."
+    description: "Consulta los datos de tu perfil."
   }
 ];
 

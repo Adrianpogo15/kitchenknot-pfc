@@ -108,7 +108,7 @@ export default function UserRecipesScreen({ token, isGuest, profile, onRequireAu
         <Text style={styles.eyebrow}>Comunidad</Text>
         <Text style={styles.title}>Recetas de usuarios</Text>
         <Text style={styles.subtitle}>
-          Descubre recetas creadas por otros usuarios y guarda tus favoritas para tenerlas a mano.
+          Descubre recetas creadas por otros usuarios.
         </Text>
       </View>
 

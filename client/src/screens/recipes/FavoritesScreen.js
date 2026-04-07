@@ -83,7 +83,7 @@ export default function FavoritesScreen({ token, isGuest, onRequireAuth, onOpenR
         <Text style={styles.eyebrow}>Favoritos</Text>
         <Text style={styles.title}>Tus recetas guardadas</Text>
         <Text style={styles.subtitle}>
-          Filtra tus favoritos por nombre y navega por páginas de 10 resultados.
+          Consulta tus recetas favoritas.
         </Text>
       </View>
 

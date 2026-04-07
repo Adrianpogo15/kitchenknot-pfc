@@ -146,10 +146,6 @@ export default function AuthScreen({ initialMode = "login", onAuthenticated, onC
         <View style={styles.heroCard}>
           <LogoMark />
           <Text style={styles.title}>Tu recetario empieza aquí</Text>
-          <Text style={styles.subtitle}>
-            Inicia sesión para guardar tus recetas, organizar tu perfil y disfrutar de una
-            experiencia personalizada. También puedes entrar como invitado.
-          </Text>
         </View>
 
         <View style={styles.modeSwitcher}>
@@ -170,9 +166,6 @@ export default function AuthScreen({ initialMode = "login", onAuthenticated, onC
         {mode === "login" ? (
           <View style={styles.card}>
             <Text style={styles.sectionTitle}>Iniciar sesión</Text>
-            <Text style={styles.formInfo}>
-              El correo electrónico y la contraseña son obligatorios para acceder a tu cuenta.
-            </Text>
             <LabeledInput
               label="Email"
               value={loginForm.email}
@@ -198,9 +191,6 @@ export default function AuthScreen({ initialMode = "login", onAuthenticated, onC
         ) : (
           <View style={styles.card}>
             <Text style={styles.sectionTitle}>Crear cuenta</Text>
-            <Text style={styles.formInfo}>
-              Los campos de correo, nombre de usuario y contraseña son obligatorios.
-            </Text>
             <LabeledInput
               label="Email"
               value={registerForm.email}
@@ -230,7 +220,7 @@ export default function AuthScreen({ initialMode = "login", onAuthenticated, onC
               theme={theme}
             />
             <Text style={styles.helperText}>
-              Usa una contraseña de al menos 6 caracteres y un nombre de usuario de 3 o más.
+              Usa una contraseña de al menos 6 caracteres o más.
             </Text>
             <Pressable style={styles.avatarPicker} onPress={handlePickRegisterAvatar}>
               {registerForm.avatarUrl ? (
@@ -285,9 +275,7 @@ export default function AuthScreen({ initialMode = "login", onAuthenticated, onC
 
         <View style={styles.guestCard}>
           <Text style={styles.guestTitle}>Entrar como invitado</Text>
-          <Text style={styles.guestText}>
-            Ideal para probar el buscador y la parte pública sin crear cuenta.
-          </Text>
+          
           <ActionButton
             label="Continuar como invitado"
             onPress={onContinueAsGuest}

@@ -100,8 +100,13 @@ export default function ShoppingListsScreen({ token, isGuest, onRequireAuth }) {
 
       if (scrollToDetail) {
         setTimeout(() => {
-          scrollRef.current?.scrollTo({
-            y: Math.max(detailPositionRef.current - 18, 0),
+          const targetY = Math.max(detailPositionRef.current - 18, 0);
+          if (typeof scrollRef.current?.scrollToPosition === "function") {
+            scrollRef.current.scrollToPosition(0, targetY, true);
+            return;
+          }
+          scrollRef.current?.scrollTo?.({
+            y: targetY,
             animated: true
           });
         }, 120);
@@ -247,7 +252,7 @@ export default function ShoppingListsScreen({ token, isGuest, onRequireAuth }) {
         <Text style={styles.eyebrow}>Compras</Text>
         <Text style={styles.title}>Listas de la compra</Text>
         <Text style={styles.subtitle}>
-          Crea listas, organiza ingredientes y marca fácilmente lo que ya has comprado.
+          Gestiona tus carritos de compra.
         </Text>
       </View>
 
@@ -762,7 +767,8 @@ const createStyles = (theme) =>
       borderColor: theme.colors.border
     },
     modalCard: {
-      padding: 18
+      padding: 18,
+      paddingBottom: 30
     },
     modalTitle: {
       color: theme.colors.text,
@@ -775,7 +781,8 @@ const createStyles = (theme) =>
       lineHeight: 21
     },
     modalActions: {
-      marginTop: 18,
+      marginTop: 22,
+      marginBottom: 14,
       flexDirection: "row",
       gap: 10
     },

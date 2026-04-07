@@ -1,22 +1,4 @@
-import { API_BASE_URL } from "../constants/env";
-
-async function request(path, options = {}) {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {})
-    }
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "No se ha podido completar la solicitud");
-  }
-
-  return data;
-}
+import { requestJson } from "./httpClient";
 
 function createSearchParams(params = {}) {
   const searchParams = new URLSearchParams();
@@ -40,13 +22,13 @@ function createSearchParams(params = {}) {
 }
 
 export async function getUserRecipes(params = {}) {
-  return request(`/user-recipes?${createSearchParams(params)}`, {
+  return requestJson(`/user-recipes?${createSearchParams(params)}`, {
     method: "GET"
   });
 }
 
 export async function getMyRecipes(token, params = {}) {
-  return request(`/user-recipes/mine?${createSearchParams(params)}`, {
+  return requestJson(`/user-recipes/mine?${createSearchParams(params)}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`
@@ -55,7 +37,7 @@ export async function getMyRecipes(token, params = {}) {
 }
 
 export async function createUserRecipe(token, payload) {
-  return request("/user-recipes", {
+  return requestJson("/user-recipes", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`
@@ -65,7 +47,7 @@ export async function createUserRecipe(token, payload) {
 }
 
 export async function updateUserRecipe(token, recipeId, payload) {
-  return request(`/user-recipes/${encodeURIComponent(recipeId)}`, {
+  return requestJson(`/user-recipes/${encodeURIComponent(recipeId)}`, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token}`
@@ -75,7 +57,7 @@ export async function updateUserRecipe(token, recipeId, payload) {
 }
 
 export async function deleteUserRecipe(token, recipeId) {
-  return request(`/user-recipes/${encodeURIComponent(recipeId)}`, {
+  return requestJson(`/user-recipes/${encodeURIComponent(recipeId)}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`

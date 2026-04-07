@@ -84,11 +84,8 @@ export default function AppDrawer({
                   <View style={styles.drawerHeader}>
                     {isGuest ? (
                       <View style={styles.guestActions}>
-                        <Text style={styles.guestHeadline}>Explora como invitado</Text>
-                        <Text style={styles.guestText}>
-                          Puedes ver recetas públicas ahora y acceder más tarde para guardar tus
-                          favoritas.
-                        </Text>
+                        <Text style={styles.guestHeadline}>Explorando como invitado</Text>
+                        
                         <Pressable style={styles.primaryAction} onPress={onLoginPress}>
                           <Text style={styles.primaryActionText}>Iniciar sesión</Text>
                         </Pressable>

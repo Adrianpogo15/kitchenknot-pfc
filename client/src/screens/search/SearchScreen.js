@@ -81,7 +81,7 @@ export default function SearchScreen({ onOpenRecipe }) {
         <Text style={styles.eyebrow}>Buscador</Text>
         <Text style={styles.title}>Explora recetas</Text>
         <Text style={styles.subtitle}>
-          Busca por nombre y usa filtros avanzados para encontrar recetas de una forma más precisa.
+          Busca por nombre y usa filtros avanzados para encontrar recetas de diversas fuentes externas.
         </Text>
       </View>
 

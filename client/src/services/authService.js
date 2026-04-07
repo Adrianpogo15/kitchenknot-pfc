@@ -1,43 +1,25 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { API_BASE_URL } from "../constants/env";
+import { requestJson } from "./httpClient";
 
 const TOKEN_STORAGE_KEY = "kitchenknot_access_token";
 
-async function request(path, options = {}) {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {})
-    }
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "Ha ocurrido un error en la solicitud");
-  }
-
-  return data;
-}
-
 export async function registerUser(payload) {
-  return request("/auth/register", {
+  return requestJson("/auth/register", {
     method: "POST",
     body: JSON.stringify(payload)
   });
 }
 
 export async function loginUser(payload) {
-  return request("/auth/login", {
+  return requestJson("/auth/login", {
     method: "POST",
     body: JSON.stringify(payload)
   });
 }
 
 export async function getMyProfile(token) {
-  return request("/auth/me", {
+  return requestJson("/auth/me", {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`
@@ -46,7 +28,7 @@ export async function getMyProfile(token) {
 }
 
 export async function updateMyProfile(token, payload) {
-  return request("/auth/me", {
+  return requestJson("/auth/me", {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${token}`
@@ -56,7 +38,7 @@ export async function updateMyProfile(token, payload) {
 }
 
 export async function deleteMyAccount(token) {
-  return request("/auth/me", {
+  return requestJson("/auth/me", {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`

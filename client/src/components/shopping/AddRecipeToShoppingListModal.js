@@ -284,7 +284,8 @@ const createStyles = (theme) =>
       borderColor: theme.colors.border
     },
     modalCard: {
-      padding: 18
+      padding: 18,
+      paddingBottom: 30
     },
     header: {
       flexDirection: "row",
@@ -424,7 +425,8 @@ const createStyles = (theme) =>
       fontWeight: "700"
     },
     footer: {
-      marginTop: 20,
+      marginTop: 24,
+      marginBottom: 14,
       flexDirection: "row",
       gap: 10
     },

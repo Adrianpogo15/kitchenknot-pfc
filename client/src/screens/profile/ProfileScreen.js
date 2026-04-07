@@ -166,14 +166,16 @@ export default function ProfileScreen({
         <View style={styles.guestCard}>
           <Text style={styles.title}>Perfil bloqueado para invitados</Text>
           <Text style={styles.subtitle}>
-            Cuando inicies sesión podrás consultar y editar tus datos personales, guardar tus
+            Inicia sesión o regístrate para  consultar y editar tus datos personales, guardar tus
             recetas y gestionar tu actividad dentro de la aplicación.
           </Text>
           <View style={styles.guestButtons}>
-            <Pressable style={styles.primaryButton} onPress={onLoginPress}>
+            <Pressable style={styles.guestPrimaryButton} onPress={onLoginPress}>
+              <Ionicons name="log-in-outline" size={18} color={theme.colors.white} />
               <Text style={styles.primaryButtonText}>Iniciar sesión</Text>
             </Pressable>
             <Pressable style={styles.secondaryButtonGuest} onPress={onRegisterPress}>
+              <Ionicons name="person-add-outline" size={18} color={theme.colors.primaryStrong} />
               <Text style={styles.secondaryButtonText}>Registrarse</Text>
             </Pressable>
           </View>
@@ -188,8 +190,7 @@ export default function ProfileScreen({
         <Text style={styles.eyebrow}>Perfil</Text>
         <Text style={styles.title}>Tus datos personales</Text>
         <Text style={styles.subtitle}>
-          Consulta tu información básica y actualízala cuando lo necesites desde un formulario
-          sencillo.
+          Consulta tu información básica.
         </Text>
       </View>
 
@@ -292,7 +293,6 @@ function EditProfileModal({
               </Pressable>
             </View>
 
-            <Text style={styles.helperText}>Completa los campos obligatorios para guardar los cambios.</Text>
 
             <View style={styles.imageManager}>
               {form.avatarPreview ? (
@@ -505,11 +505,15 @@ const createStyles = (theme) =>
       alignItems: "center"
     },
     secondaryButtonGuest: {
-      flex: 1,
       backgroundColor: theme.isDark ? theme.colors.surface : theme.colors.white,
-      borderRadius: 18,
-      paddingVertical: 14,
-      alignItems: "center"
+      borderRadius: 20,
+      paddingVertical: 15,
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "row",
+      gap: 8,
+      borderWidth: 1,
+      borderColor: theme.colors.border
     },
     secondaryButtonText: {
       color: theme.colors.primaryStrong,
@@ -523,9 +527,18 @@ const createStyles = (theme) =>
       borderColor: theme.colors.border
     },
     guestButtons: {
+      gap: 12,
+      marginTop: 20
+    },
+    guestPrimaryButton: {
+      backgroundColor: theme.colors.primary,
+      borderRadius: 20,
+      paddingVertical: 16,
+      alignItems: "center",
+      justifyContent: "center",
       flexDirection: "row",
       gap: 12,
-      marginTop: 18
+      ...theme.shadow
     },
     modalOverlay: {
       flex: 1,

@@ -1,20 +1,4 @@
-import { API_BASE_URL } from "../constants/env";
-
-async function request(path) {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "No se ha podido realizar la busqueda");
-  }
-
-  return data;
-}
+import { requestJson } from "./httpClient";
 
 export async function searchMeals(params = {}) {
   const searchParams = new URLSearchParams();
@@ -42,5 +26,5 @@ export async function searchMeals(params = {}) {
   searchParams.set("page", String(params.page || 1));
   searchParams.set("pageSize", String(params.pageSize || 10));
 
-  return request(`/external-recipes/search?${searchParams.toString()}`);
+  return requestJson(`/external-recipes/search?${searchParams.toString()}`);
 }

@@ -16,16 +16,15 @@ export default function HomeScreen({ isGuest, profile, onNavigate }) {
   return (
     <ScreenShell>
       <View style={styles.hero}>
-        <Text style={styles.title}>Bienvenido, {greetingName}</Text>
+        <Text style={styles.title}>Bienvenido/a, {greetingName}</Text>
         <Text style={styles.subtitle}>
-          Accede rápidamente a las secciones principales de tu aplicación y empieza a organizar tu
-          experiencia culinaria.
+          Accede rápidamente a las secciones principales de tu cocina. 
         </Text>
       </View>
 
       <View style={styles.quickCard}>
         <Text style={styles.quickEyebrow}>Accesos rápidos</Text>
-        <Text style={styles.quickTitle}>Todo lo importante en un solo lugar</Text>
+        <Text style={styles.quickTitle}>Todo lo importante a un solo paso</Text>
         <View style={styles.quickGrid}>
           {quickAccessSections.map((item) => (
             <QuickAccessCard

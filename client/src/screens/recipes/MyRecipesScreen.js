@@ -310,7 +310,7 @@ export default function MyRecipesScreen({ token, isGuest, onRequireAuth, onOpenR
         <Text style={styles.eyebrow}>Creación propia</Text>
         <Text style={styles.title}>Mis recetas</Text>
         <Text style={styles.subtitle}>
-          Gestiona tus recetas con una vista más simple, rápida y pensada para editar.
+          Gestiona tus recetas personales.
         </Text>
       </View>
 

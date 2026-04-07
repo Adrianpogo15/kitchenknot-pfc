@@ -195,9 +195,7 @@ export default function UserRecipeDetailScreen({
 
       <View style={styles.utilitySection}>
         <Text style={styles.sectionTitle}>Acciones rápidas</Text>
-        <Text style={styles.utilityText}>
-          Guarda la receta para verla más tarde o exporta sus ingredientes a una de tus listas.
-        </Text>
+        
         <View style={styles.utilityActions}>
           <Pressable style={styles.utilityButton} onPress={handleOpenShoppingList}>
             <Ionicons name="cart-outline" size={20} color={theme.colors.primaryStrong} />
