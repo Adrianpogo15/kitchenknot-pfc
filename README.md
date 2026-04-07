@@ -16,9 +16,4 @@ Proyecto base para el desarrollo del PFC de DAM/DAM-like centrado en una aplicac
 - `server/`: API REST y logica de negocio
 - `docs/`: documentacion funcional y tecnica
 
-## Siguientes pasos
 
-1. Inicializar el proyecto Expo dentro de `client/`.
-2. Inicializar la API Express dentro de `server/`.
-3. Crear la base de datos PostgreSQL con el esquema inicial.
-4. Definir la primera pantalla de la aplicacion y su flujo.
