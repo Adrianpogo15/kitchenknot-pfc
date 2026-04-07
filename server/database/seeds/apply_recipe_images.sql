@@ -3,16 +3,16 @@
 
 UPDATE recipes
 SET image_url = CASE id
-    WHEN '30000000-0000-0000-0000-000000000001'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/crema-calabaza-asada.png'
-    WHEN '30000000-0000-0000-0000-000000000002'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/tortilla-patatas-jugosa.png'
-    WHEN '30000000-0000-0000-0000-000000000003'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/bowl-arroz-pollo-verduras.png'
-    WHEN '30000000-0000-0000-0000-000000000004'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/pasta-integral-atun-tomate.png'
-    WHEN '30000000-0000-0000-0000-000000000005'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/brownie-cacao-intenso.png'
-    WHEN '30000000-0000-0000-0000-000000000006'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/galletas-avena-platano.png'
-    WHEN '30000000-0000-0000-0000-000000000007'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/paella-mixta-domingo.png'
-    WHEN '30000000-0000-0000-0000-000000000008'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/croquetas-jamon-cremosas.png'
-    WHEN '30000000-0000-0000-0000-000000000009'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/curry-garbanzos-suave.png'
-    WHEN '30000000-0000-0000-0000-000000000010'::uuid THEN 'http://192.168.1.131:3000/static/recipe-images/ensalada-templada-quinoa.png'
+    WHEN '30000000-0000-0000-0000-000000000001'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/crema-calabaza-asada.png'
+    WHEN '30000000-0000-0000-0000-000000000002'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/tortilla-patatas-jugosa.png'
+    WHEN '30000000-0000-0000-0000-000000000003'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/bowl-arroz-pollo-verduras.png'
+    WHEN '30000000-0000-0000-0000-000000000004'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/pasta-integral-atun-tomate.png'
+    WHEN '30000000-0000-0000-0000-000000000005'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/brownie-cacao-intenso.png'
+    WHEN '30000000-0000-0000-0000-000000000006'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/galletas-avena-platano.png'
+    WHEN '30000000-0000-0000-0000-000000000007'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/paella-mixta-domingo.png'
+    WHEN '30000000-0000-0000-0000-000000000008'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/croquetas-jamon-cremosas.png'
+    WHEN '30000000-0000-0000-0000-000000000009'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/curry-garbanzos-suave.png'
+    WHEN '30000000-0000-0000-0000-000000000010'::uuid THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/ensalada-templada-quinoa.png'
     ELSE image_url
 END
 WHERE id IN (
@@ -30,10 +30,10 @@ WHERE id IN (
 
 UPDATE recipes
 SET image_url = CASE
-    WHEN category = 'Arroces' THEN 'http://192.168.1.131:3000/static/recipe-images/categoria-arroces.png'
-    WHEN category = 'Pasta' THEN 'http://192.168.1.131:3000/static/recipe-images/categoria-pasta.png'
-    WHEN category = 'Postres' THEN 'http://192.168.1.131:3000/static/recipe-images/categoria-postres.png'
-    ELSE 'http://192.168.1.131:3000/static/recipe-images/categoria-horno.png'
+    WHEN category = 'Arroces' THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/categoria-arroces.png'
+    WHEN category = 'Pasta' THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/categoria-pasta.png'
+    WHEN category = 'Postres' THEN 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/categoria-postres.png'
+    ELSE 'https://kitchenknot-pfc-api.onrender.com/static/recipe-images/categoria-horno.png'
 END
 WHERE image_url IS NULL
   AND id::text IN (
