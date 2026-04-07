@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "KitchenKnot",
+    "slug": "kitchen-knot",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/icons/app-icon.png",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f5f3ec"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "icon": "./assets/icons/app-icon.png"
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "package": "com.adrianpogo15.kitchenknot",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/adaptive-foreground.png",
+        "backgroundColor": "#f5f3ec"
+      }
+    },
+    "web": {
+      "favicon": "./assets/icons/favicon.png"
+    },
+    "plugins": [
+      "@react-native-community/datetimepicker"
+    ]
+  }
+}
