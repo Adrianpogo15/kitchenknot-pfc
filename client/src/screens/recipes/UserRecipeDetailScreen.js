@@ -18,6 +18,7 @@ import AddRecipeToShoppingListModal from "../../components/shopping/AddRecipeToS
 import { addFavorite, getFavoriteStatuses, removeFavorite } from "../../services/favoriteService";
 import { addRecipeComment, getUserRecipeDetail, rateRecipe } from "../../services/recipeDetailService";
 import { useAppTheme } from "../../styles/theme";
+import { normalizeImageUri } from "../../utils/image";
 
 export default function UserRecipeDetailScreen({
   recipeId,
@@ -43,6 +44,7 @@ export default function UserRecipeDetailScreen({
 
     return detail.author.firstName || detail.author.username || "Usuario";
   }, [detail]);
+  const imageUri = normalizeImageUri(detail?.image);
 
   useEffect(() => {
     loadDetail();
@@ -160,8 +162,8 @@ export default function UserRecipeDetailScreen({
       </View>
 
       <View style={styles.hero}>
-        {detail.image ? (
-          <Image source={{ uri: detail.image }} style={styles.image} />
+        {imageUri ? (
+          <Image source={{ uri: imageUri }} style={styles.image} />
         ) : (
           <View style={styles.placeholderImage}>
             <Ionicons name="restaurant-outline" size={32} color={theme.colors.primaryStrong} />

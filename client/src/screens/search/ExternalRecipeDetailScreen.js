@@ -6,6 +6,7 @@ import RecipeDetailSkeleton from "../../components/recipes/RecipeDetailSkeleton"
 import ScreenShell from "../../components/common/ScreenShell";
 import { TRANSLATIONS } from "../../constants/recipeFilters";
 import { useAppTheme } from "../../styles/theme";
+import { normalizeImageUri } from "../../utils/image";
 
 function translateItems(items, dictionary) {
   if (!Array.isArray(items) || !items.length) {
@@ -18,6 +19,7 @@ function translateItems(items, dictionary) {
 export default function ExternalRecipeDetailScreen({ recipe, onBack }) {
   const { theme } = useAppTheme();
   const styles = createStyles(theme);
+  const imageUri = normalizeImageUri(recipe?.image);
 
   if (!recipe) {
     return (
@@ -37,8 +39,8 @@ export default function ExternalRecipeDetailScreen({ recipe, onBack }) {
       </View>
 
       <View style={styles.hero}>
-        {recipe.image ? (
-          <Image source={{ uri: recipe.image }} style={styles.image} />
+        {imageUri ? (
+          <Image source={{ uri: imageUri }} style={styles.image} />
         ) : (
           <View style={styles.placeholderImage}>
             <Ionicons name="restaurant-outline" size={32} color={theme.colors.primaryStrong} />

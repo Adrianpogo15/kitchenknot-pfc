@@ -45,7 +45,7 @@ const createStyles = (theme) =>
     flexGrow: 1,
     paddingHorizontal: 18,
     paddingTop: 18,
-    paddingBottom: 36,
+    paddingBottom: 88,
     backgroundColor: theme.colors.background
   },
   backgroundOrbTop: {

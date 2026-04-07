@@ -71,7 +71,7 @@ export default function AppDrawer({
                   showsVerticalScrollIndicator={false}
                   contentContainerStyle={[
                     styles.drawerScrollContent,
-                    { paddingTop: insets.top + 8, paddingBottom: Math.max(insets.bottom, 16) }
+                    { paddingTop: insets.top + 8, paddingBottom: 16 }
                   ]}
                 >
                   <View style={styles.drawerTopRow}>
@@ -126,38 +126,44 @@ export default function AppDrawer({
                     ))}
                   </View>
 
-                  <View style={styles.bottomControls}>
-                    <View style={styles.themeSwitcher}>
-                      <ThemeModeButton
-                        label="Claro"
-                        icon="sunny-outline"
-                        active={mode === "light"}
-                        onPress={() => setMode("light")}
-                        theme={theme}
-                      />
-                      <ThemeModeButton
-                        label="Oscuro"
-                        icon="moon-outline"
-                        active={mode === "dark"}
-                        onPress={() => setMode("dark")}
-                        theme={theme}
-                      />
-                    </View>
-
-                    {!isGuest ? (
-                      <Pressable
-                        style={styles.logoutButton}
-                        onPress={() => {
-                          setOpen(false);
-                          onLogout();
-                        }}
-                      >
-                        <Ionicons name="log-out-outline" size={20} color={theme.colors.danger} />
-                        <Text style={styles.logoutButtonText}>Salir</Text>
-                      </Pressable>
-                    ) : null}
-                  </View>
                 </ScrollView>
+
+                <View
+                  style={[
+                    styles.bottomControls,
+                    { paddingBottom: Math.max(insets.bottom, 16) }
+                  ]}
+                >
+                  <View style={styles.themeSwitcher}>
+                    <ThemeModeButton
+                      label="Claro"
+                      icon="sunny-outline"
+                      active={mode === "light"}
+                      onPress={() => setMode("light")}
+                      theme={theme}
+                    />
+                    <ThemeModeButton
+                      label="Oscuro"
+                      icon="moon-outline"
+                      active={mode === "dark"}
+                      onPress={() => setMode("dark")}
+                      theme={theme}
+                    />
+                  </View>
+
+                  {!isGuest ? (
+                    <Pressable
+                      style={styles.logoutButton}
+                      onPress={() => {
+                        setOpen(false);
+                        onLogout();
+                      }}
+                    >
+                      <Ionicons name="log-out-outline" size={20} color={theme.colors.danger} />
+                      <Text style={styles.logoutButtonText}>Salir</Text>
+                    </Pressable>
+                  ) : null}
+                </View>
               </View>
             </TouchableWithoutFeedback>
           </View>
@@ -209,7 +215,7 @@ const createStyles = (theme) =>
       paddingHorizontal: 18,
       paddingTop: 10,
       paddingBottom: 4,
-      backgroundColor: theme.isDark ? "#16312a" : "transparent"
+      backgroundColor: theme.isDark ? "#16312a" : theme.colors.background
     },
     topBarTitle: {
       color: theme.isDark ? "#d9eadf" : theme.colors.primaryStrong,
@@ -256,8 +262,7 @@ const createStyles = (theme) =>
       height: "100%"
     },
     drawerScrollContent: {
-      paddingHorizontal: 16,
-      flexGrow: 1
+      paddingHorizontal: 16
     },
     drawerTopRow: {
       flexDirection: "row",
@@ -376,8 +381,12 @@ const createStyles = (theme) =>
       color: theme.colors.white
     },
     bottomControls: {
-      marginTop: 14,
-      gap: 10
+      gap: 10,
+      paddingHorizontal: 16,
+      paddingTop: 12,
+      borderTopWidth: 1,
+      borderTopColor: theme.colors.border,
+      backgroundColor: theme.colors.surface
     },
     themeSwitcher: {
       flexDirection: "row",

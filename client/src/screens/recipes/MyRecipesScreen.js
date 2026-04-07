@@ -26,6 +26,7 @@ import {
   updateUserRecipe
 } from "../../services/userRecipeService";
 import { useAppTheme } from "../../styles/theme";
+import { normalizeImageUri } from "../../utils/image";
 
 const DIFFICULTY_OPTIONS = ["facil", "media", "dificil"];
 const CATEGORY_OPTIONS = ["Entrante", "Principal", "Postre", "Desayuno", "Cena", "Snack"];
@@ -350,8 +351,8 @@ export default function MyRecipesScreen({ token, isGuest, onRequireAuth, onOpenR
       {recipes.map((recipe) => (
         <View key={recipe.id} style={styles.manageCard}>
           <View style={styles.recipeCardTop}>
-            {recipe.image ? (
-              <Image source={{ uri: recipe.image }} style={styles.recipeThumb} />
+            {normalizeImageUri(recipe.image) ? (
+              <Image source={{ uri: normalizeImageUri(recipe.image) }} style={styles.recipeThumb} />
             ) : (
               <View style={styles.recipeThumbPlaceholder}>
                 <Ionicons name="image-outline" size={20} color={theme.colors.primaryStrong} />

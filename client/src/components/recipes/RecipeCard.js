@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { TRANSLATIONS } from "../../constants/recipeFilters";
 import { useAppTheme } from "../../styles/theme";
+import { normalizeImageUri } from "../../utils/image";
 
 function translateItems(items, dictionary) {
   if (!Array.isArray(items) || items.length === 0) {
@@ -45,6 +46,7 @@ export default function RecipeCard({
   const { theme } = useAppTheme();
   const styles = createStyles(theme);
   const isUserRecipe = variant === "user";
+  const imageUri = normalizeImageUri(recipe.image);
 
   function handleFavoritePress(event) {
     event?.stopPropagation?.();
@@ -86,8 +88,8 @@ export default function RecipeCard({
 
   return (
     <CardWrapper style={styles.card} onPress={onPress}>
-      {recipe.image ? (
-        <Image source={{ uri: recipe.image }} style={styles.image} />
+      {imageUri ? (
+        <Image source={{ uri: imageUri }} style={styles.image} />
       ) : (
         <View style={styles.placeholderImage}>
           <Ionicons name="restaurant-outline" size={28} color={theme.colors.primaryStrong} />
